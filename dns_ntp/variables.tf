@@ -9,6 +9,7 @@ variable "avi" {}
 variable "external_gw" {}
 variable "ssh_gw" {}
 
+
 variable "vsphere_username" {}
 variable "vsphere_password" {}
 variable "bind_password" {}
