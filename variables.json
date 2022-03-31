@@ -43,41 +43,6 @@
     "server": "10.23.108.1",
     "timezone": "Europe/Zurich"
   },
-  "esxi": {
-    "count": 3,
-    "iso_source_location": "/home/ubuntu/bin/VMware-VMvisor-Installer-7.0U3d-19482537.x86_64.iso",
-    "iso_location": "/tmp/esxi",
-    "boot_cfg_location": "efi/boot/boot.cfg",
-    "boot_cfg_lines": ["kernelopt=runweasel ks=cdrom:/KS_CUST.CFG"],
-    "bios": "efi",
-    "guest_id": "vmkernel65Guest",
-    "keyboard_type": "US Default",
-    "basename": "esxi-0",
-    "cpu": 24,
-    "memory": 131072,
-    "disks": [
-      {
-        "size": 32,
-        "label": "disk0",
-        "unit_number": 0,
-        "thin_provisioned": true
-      },
-      {
-        "size": 64,
-        "label": "disk1",
-        "unit_number": 1,
-        "thin_provisioned": true
-      },
-      {
-        "size": 448,
-        "label": "disk2",
-        "unit_number": 2,
-        "thin_provisioned": true
-      }
-    ],
-    "wait_for_guest_net_timeout": 0,
-    "nested_hv_enabled": "true"
-  },
   "dns_ntp": {
     "create": true,
     "dns": "10.23.108.1, 10.16.142.111",
@@ -119,6 +84,41 @@
         "via": "172.16.100.110"
       }
     ]
+  },
+  "esxi": {
+    "count": 3,
+    "iso_source_location": "/home/ubuntu/bin/VMware-VMvisor-Installer-7.0U3d-19482537.x86_64.iso",
+    "iso_location": "/tmp/esxi",
+    "boot_cfg_location": "efi/boot/boot.cfg",
+    "boot_cfg_lines": ["kernelopt=runweasel ks=cdrom:/KS_CUST.CFG"],
+    "bios": "efi",
+    "guest_id": "vmkernel65Guest",
+    "keyboard_type": "US Default",
+    "basename": "esxi-0",
+    "cpu": 24,
+    "memory": 131072,
+    "disks": [
+      {
+        "size": 32,
+        "label": "disk0",
+        "unit_number": 0,
+        "thin_provisioned": true
+      },
+      {
+        "size": 64,
+        "label": "disk1",
+        "unit_number": 1,
+        "thin_provisioned": true
+      },
+      {
+        "size": 448,
+        "label": "disk2",
+        "unit_number": 2,
+        "thin_provisioned": true
+      }
+    ],
+    "wait_for_guest_net_timeout": 0,
+    "nested_hv_enabled": "true"
   },
   "vcenter": {
     "iso_source_location": "/home/ubuntu/bin/VMware-VCSA-all-7.0.3-19480866.iso",
