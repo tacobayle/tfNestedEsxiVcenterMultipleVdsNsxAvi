@@ -6,19 +6,8 @@ This Infrastructure as code will deploy a nested ESXi/vCenter/NSXT/Avi (on the t
 
 ## Use cases
 
-### Single VDS - if vcenter.dvs.single_vds == true
-In this use case, a single vds switch is configured in the nested vCenter with three port groups:
-- Management
-- Vmotion
-- VSAN
+- on the top of a vCenter environment, this repo will create the following:
 
-The following port groups are configured with a specific VLAN ID:
-- vcenter.dvs.portgroup.management.name with VLAN id vcenter.dvs.portgroup.management.vlan 
-- vcenter.dvs.portgroup.VMotion.name with VLAN id vcenter.dvs.portgroup.VMotion.vlan
-- vcenter.dvs.portgroup.VSAN.name with VLAN id vcenter.dvs.portgroup.VSAN.vlan
-
-Two "physical" uplink NICs (per ESXi host) are connected to this single VDS.
-These two NICs are connected to the underlay vCenter network defined in underlay_vcenter.network (leveraging 802.1q).
 
 ### Multiple VDS - if vcenter.dvs.single_vds == false
 In this use case, multiple vds switches are configured in the nested vCenter:
