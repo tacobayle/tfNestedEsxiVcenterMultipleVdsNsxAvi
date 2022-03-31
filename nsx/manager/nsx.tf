@@ -14,7 +14,6 @@ resource "vsphere_virtual_machine" "nsx_extra_small" {
   resource_pool_id = data.vsphere_resource_pool.resource_pool_nested.id
   folder           = vsphere_folder.nsx[0].path
   wait_for_guest_net_timeout = 10
-  //  deployment_option = var.nsx.manager.deployment
 
   network_interface {
     network_id = data.vsphere_network.vcenter_network_mgmt_nested.id
@@ -149,7 +148,6 @@ resource "vsphere_virtual_machine" "nsx_large" {
   resource_pool_id = data.vsphere_resource_pool.resource_pool_nested.id
   folder           = vsphere_folder.nsx[0].path
   wait_for_guest_net_timeout = 10
-  //  deployment_option = var.nsx.manager.deployment
 
   network_interface {
     network_id = data.vsphere_network.vcenter_network_mgmt_nested.id
