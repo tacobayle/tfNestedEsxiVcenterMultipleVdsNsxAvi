@@ -135,33 +135,6 @@ if [[ $(jq -c -r .avi.controller.create $jsonFile) == true ]] || [[ $(jq -c -r .
   do
     sudo ip route add $(echo $route | jq -c -r '.to') via $(jq -c -r .vcenter.dvs.portgroup.management.external_gw_ip $jsonFile)
   done
-#  rm -f avi/controllers/controllers.tf avi/controllers/rp_attendees_* avi/controllers/controllers_attendees_*
-#  if [[ $(jq -c -r .avi.controller.create $jsonFile) == true ]] && [[ $(jq -c -r .vcenter.avi_users.create $jsonFile) == true ]] && [[ -f "$(jq -c -r .vcenter.avi_users.file $jsonFile)" ]] ; then
-#    count=0
-#    for username in $(cat $(jq -c -r .vcenter.avi_users.file $jsonFile))
-#    do
-#      username_wo_domain=${username%@*}
-#      username_wo_domain_wo_dot="${username_wo_domain//./_}"
-#      jq -n \
-#          --arg username $username_wo_domain_wo_dot \
-#          '{username: $username}' | tee config.json >/dev/null
-#          python3 python/template.py avi/controllers/templates/rp_attendees.tf.j2 config.json avi/controllers/rp_attendees_$username_wo_domain_wo_dot.tf
-#          rm config.json
-#      #
-#      jq -n \
-#          --arg username $username_wo_domain_wo_dot \
-#          --arg ip_controller $(jq -c -r .vcenter.dvs.portgroup.management.avi_ips[$count] $jsonFile) \
-#          --arg ip_controller_sec $(jq -c -r .vcenter.dvs.portgroup.avi_mgmt.avi_ips[$count] $jsonFile) \
-#          '{username: $username, ip_controller: $ip_controller, ip_controller_sec: $ip_controller_sec}' | tee config.json > /dev/null
-#          python3 python/template.py avi/controllers/templates/controllers_attendees.tf.j2 config.json avi/controllers/controllers_attendees_$username_wo_domain_wo_dot.tf
-#          rm config.json
-#          #
-#      count=$((count+1))
-#    done
-#  fi
-#  if [[ $(jq -c -r .avi.controller.create $jsonFile) == true ]] && [[ $(jq -c -r .vcenter.avi_users.create $jsonFile) == false ]] ; then
-#    cp avi/controllers/templates/controllers.tf avi/controllers
-#  fi
   tf_init_apply "Build of Nested Avi Controllers - This should take around 15 minutes" avi/controllers ../../logs/tf_avi.stdout ../../logs/tf_avi.errors ../../$jsonFile
   #
   # Remove Routes to join overlay network
