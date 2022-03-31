@@ -1,11 +1,5 @@
 #!/bin/bash
 #
-#echo ""
-#echo "++++++++++++++++++++++++++++++++"
-#echo "Installing packages"
-#sudo apt install -y jq
-#sudo apt install -y genisoimage
-#
 if [ -f "../variables.json" ]; then
   jsonFile="../variables.json"
 else
@@ -91,10 +85,6 @@ do
   echo "${contents}" | sudo tee -a /etc/hosts
   count=$((count+1))
 done
-#contents=$(cat /etc/hosts | grep -v $(jq -r .vcenter.dvs.portgroup.management.esxi_ips[0] $jsonFile))
-#echo "${contents}" | sudo tee /etc/hosts
-#contents="$(jq -r .vcenter.dvs.portgroup.management.esxi_ips[0] $jsonFile) $(jq -r .esxi.basename $jsonFile)1.$(jq -r .dns.domain $jsonFile)"
-#echo "${contents}" | sudo tee -a /etc/hosts
 #
 echo ""
 echo "++++++++++++++++++++++++++++++++"
