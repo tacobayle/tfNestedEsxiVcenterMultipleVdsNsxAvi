@@ -7,7 +7,6 @@ variable "vcenter" {}
 variable "nsx" {}
 variable "avi" {}
 variable "external_gw" {}
-variable "ssh_gw" {}
 
 
 variable "vsphere_username" {}

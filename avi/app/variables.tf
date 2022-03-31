@@ -6,7 +6,6 @@ variable "dns" {}
 variable "vcenter" {}
 variable "nsx" {}
 variable "avi" {}
-variable "ssh_gw" {}
 variable "ubuntu_password" {}
 variable "nsx_password" {}
 variable "external_gw" {}

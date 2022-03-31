@@ -22,9 +22,6 @@
         "name": "vxw-dvs-34-virtualwire-119-sid-1080118-sof2-01-vc08-avi-dev115"
       }
     },
-    "network": {
-      "name": "vxw-dvs-34-virtualwire-3-sid-1080002-sof2-01-vc08-avi-mgmt"
-      },
     "network_nsx_external": {
       "name": "vxw-dvs-34-virtualwire-124-sid-1080123-sof2-01-vc08-avi-dev120"
       },
@@ -157,7 +154,6 @@
           "nsx_vip": "10.41.134.137",
           "nsx_edge": ["10.41.134.138", "10.41.134.139"],
           "avi_ips": ["10.41.134.139"],
-          "ssh_gw_ip": "10.41.134.141",
           "avi_app_ips": ["10.41.134.142", "10.41.134.143"]
         },
         "VMotion": {
@@ -699,16 +695,5 @@
       "hackazon_docker_image": "mutzel/all-in-one-hackazon:postinstall",
       "hackazon_tcp_port": "8081"
     }
-  },
-  "ssh_gw": {
-    "create": false,
-    "ova_location": "/home/ubuntu/bin/focal-server-cloudimg-amd64.ova",
-    "cpu": 4,
-    "memory": 8192,
-    "disk": 32,
-    "public_key_path": "~/.ssh/cloudKey.pub",
-    "private_key_path": "~/.ssh/cloudKey",
-    "username": "ubuntu",
-    "netplan_file": "/etc/netplan/50-cloud-init.yaml"
   }
 }

@@ -170,9 +170,3 @@ fi
 if [[ $(jq -c -r .avi.controller.create $jsonFile) == true ]] && [[ $(jq -c -r .avi.config.create $jsonFile) == true ]] ; then
   tf_init_apply "Build of the config of Avi" avi/config ../../logs/tf_avi_config.stdout ../../logs/tf_avi_config.errors ../../$jsonFile
 fi
-#
-# Build of the ssg_gw
-#
-if [[ $(jq -c -r .ssh_gw.create $jsonFile) == true ]] ; then
-  tf_init_apply "Build of Nested ssh_gw - This should take around 5 minutes" ssh_gw ../logs/tf_ssg_gw.stdout ../logs/tf_ssg_gw.errors ../$jsonFile
-fi
