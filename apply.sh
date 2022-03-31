@@ -53,13 +53,6 @@ if [[ $tier0_vips -gt $vip_count_external_tier0 ]] ; then
 fi
 done
 #
-# Prerequisites to be added
-# govc install
-# jq install
-# pip3 install pyvmomi for Ansible
-# check the files
-# ansible installed
-# # ansible-galaxy collection install git+https://github.com/vmware/ansible-for-nsxt.git,master
 tf_init_apply () {
   # $1 messsage to display
   # $2 is the folder to init/apply tf
