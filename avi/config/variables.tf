@@ -9,3 +9,5 @@ variable "avi_old_password" {}
 variable "avi_username" {}
 variable "nsx_password" {}
 variable "vcenter_password" {}
+variable "dns_ntp" {}
+variable "esxi" {}
