@@ -253,56 +253,56 @@ export TF_VAR_avi_old_password=******                # AVI old passwors
 ## start the script (create the infra)
 
 ```shell
-ubuntu@jump-sofia:~$ git clone https://github.com/tacobayle/tfNestedEsxiVcenterMultipleVdsNsxAvi ; cd tfNestedEsxiVcenterMultipleVdsNsxAvi ; /bin/bash apply.sh
+git clone https://github.com/tacobayle/tfNestedEsxiVcenterMultipleVdsNsxAvi ; cd tfNestedEsxiVcenterMultipleVdsNsxAvi ; /bin/bash apply.sh
 Cloning into 'tfNestedEsxiVcenterMultipleVdsNsxAvi'...
-remote: Enumerating objects: 246, done.
-remote: Counting objects: 100% (246/246), done.
-remote: Compressing objects: 100% (154/154), done.
-remote: Total 246 (delta 112), reused 215 (delta 81), pack-reused 0
-Receiving objects: 100% (246/246), 420.26 KiB | 4.04 MiB/s, done.
-Resolving deltas: 100% (112/112), done.
+remote: Enumerating objects: 293, done.
+remote: Counting objects: 100% (293/293), done.
+remote: Compressing objects: 100% (195/195), done.
+remote: Total 293 (delta 130), reused 250 (delta 87), pack-reused 0
+Receiving objects: 100% (293/293), 2.05 MiB | 2.30 MiB/s, done.
+Resolving deltas: 100% (130/130), done.
 -----------------------------------------------------
 Build of a folder on the underlay infrastructure - This should take less than a minute
-Starting timestamp: Thu Mar 31 10:00:14 UTC 2022
-Ending timestamp: Thu Mar 31 10:00:17 UTC 2022
+Starting timestamp: Thu Mar 31 14:58:15 UTC 2022
+Ending timestamp: Thu Mar 31 14:58:19 UTC 2022
 -----------------------------------------------------
 Build of a DNS/NTP server on the underlay infrastructure - This should take less than 5 minutes
-Starting timestamp: Thu Mar 31 10:00:17 UTC 2022
-Ending timestamp: Thu Mar 31 10:03:04 UTC 2022
+Starting timestamp: Thu Mar 31 14:58:19 UTC 2022
+Ending timestamp: Thu Mar 31 15:01:28 UTC 2022
 -----------------------------------------------------
-Build of an external GW server on the underlay infrastructure - This should take less than 5                                                                                                 minutes
-Starting timestamp: Thu Mar 31 10:03:04 UTC 2022
-Ending timestamp: Thu Mar 31 10:07:19 UTC 2022
+Build of an external GW server on the underlay infrastructure - This should take less than 5 minutes
+Starting timestamp: Thu Mar 31 15:01:28 UTC 2022
+Ending timestamp: Thu Mar 31 15:07:04 UTC 2022
 -----------------------------------------------------
 Build of the nested ESXi/vCenter infrastructure - This should take less than 45 minutes
-Starting timestamp: Thu Mar 31 10:07:19 UTC 2022
-Ending timestamp: Thu Mar 31 10:52:15 UTC 2022
+Starting timestamp: Thu Mar 31 15:07:04 UTC 2022
+Ending timestamp: Thu Mar 31 15:49:46 UTC 2022
 waiting for 15 minutes to finish the vCenter config...
 -----------------------------------------------------
 Build of NSX Nested Networks - This should take less than a minute
-Starting timestamp: Thu Mar 31 11:07:16 UTC 2022
-Ending timestamp: Thu Mar 31 11:08:00 UTC 2022
+Starting timestamp: Thu Mar 31 16:04:46 UTC 2022
+Ending timestamp: Thu Mar 31 16:04:55 UTC 2022
 -----------------------------------------------------
 Build of the nested NSXT Manager - This should take less than 20 minutes
-Starting timestamp: Thu Mar 31 11:08:00 UTC 2022
-Ending timestamp: Thu Mar 31 11:26:31 UTC 2022
+Starting timestamp: Thu Mar 31 16:04:55 UTC 2022
+Ending timestamp: Thu Mar 31 16:22:30 UTC 2022
 waiting for 5 minutes to finish the NSXT bootstrap...
 -----------------------------------------------------
-Build of the config of NSX-T
-Starting timestamp: Thu Mar 31 11:31:31 UTC 2022
-Ending timestamp: Thu Mar 31 12:22:16 UTC 2022
+Build of the config of NSX-T - This should take less than 60 minutes
+Starting timestamp: Thu Mar 31 16:27:30 UTC 2022
+Ending timestamp: Thu Mar 31 17:20:04 UTC 2022
 -----------------------------------------------------
 Build of Nested Avi Controllers - This should take around 15 minutes
-Starting timestamp: Thu Mar 31 12:22:16 UTC 2022
-Ending timestamp: Thu Mar 31 12:37:37 UTC 2022
+Starting timestamp: Thu Mar 31 17:20:04 UTC 2022
+Ending timestamp: Thu Mar 31 17:34:07 UTC 2022
 -----------------------------------------------------
 Build of Nested Avi App - This should take less than 10 minutes
-Starting timestamp: Thu Mar 31 12:37:37 UTC 2022
-Ending timestamp: Thu Mar 31 12:46:03 UTC 2022
+Starting timestamp: Thu Mar 31 17:34:07 UTC 2022
+Ending timestamp: Thu Mar 31 17:42:27 UTC 2022
 -----------------------------------------------------
-Build of the config of Avi
-Starting timestamp: Thu Mar 31 12:46:04 UTC 2022
-Ending timestamp: Thu Mar 31 13:03:31 UTC 2022
+Build of the config of Avi - This should take less than 20 minutes
+Starting timestamp: Thu Mar 31 17:42:27 UTC 2022
+Ending timestamp: Thu Mar 31 17:59:59 UTC 2022
 ```
 
 ## destroy the infra
