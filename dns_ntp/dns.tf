@@ -24,23 +24,6 @@ resource "dns_cname_record" "nsx_cname" {
   ttl   = 300
 }
 
-resource "dns_a_record_set" "avi" {
-  depends_on = [vsphere_virtual_machine.dns_ntp]
-  count = var.dns_ntp.create == true && var.avi.controller.create == true ? 1 : 0
-  zone  = "${var.dns.domain}."
-  name  = "${var.avi.controller.basename}"
-  addresses = [var.vcenter.dvs.portgroup.management.avi_ips[0]]
-  ttl = 60
-}
-
-resource "dns_cname_record" "avi_cname" {
-  depends_on = [dns_a_record_set.avi, vsphere_virtual_machine.dns_ntp]
-  zone  = "${var.dns.domain}."
-  name  = "avi"
-  cname = "${var.avi.controller.basename}.${var.dns.domain}."
-  ttl   = 300
-}
-
 resource "dns_ptr_record" "esxi" {
   depends_on = [vsphere_virtual_machine.dns_ntp]
   count = (var.dns_ntp.create == true ? length(var.vcenter.dvs.portgroup.management.esxi_ips) : 0)

@@ -140,7 +140,6 @@
       "portgroup": {
         "management": {
           "name": "management",
-          "vlan": 0,
           "netmask": "255.255.252.0",
           "prefix": "22",
           "gateway": "10.41.132.1",
@@ -150,38 +149,30 @@
           "dns_ntp_ip": "10.41.134.134",
           "external_gw_ip": "10.41.134.140",
           "nsx_ip": "10.41.134.136",
-          "nsx_vip": "10.41.134.137",
-          "nsx_edge": ["10.41.134.138", "10.41.134.139"],
-          "avi_ips": ["10.41.134.139"],
-          "avi_app_ips": ["10.41.134.142", "10.41.134.143"]
+          "nsx_edge": ["10.41.134.138", "10.41.134.139"]
         },
         "VMotion": {
           "name": "VMotion",
-          "vlan": 100,
           "esxi_ips": ["100.64.133.11", "100.64.133.12", "100.64.133.13"],
           "netmask": "255.255.255.0",
           "prefix": "24"
         },
         "VSAN": {
           "name": "VSAN",
-          "vlan": 110,
           "esxi_ips": ["100.64.132.11", "100.64.132.12", "100.64.132.13"],
           "netmask": "255.255.255.0",
           "prefix": "24"
         },
         "nsx_overlay": {
           "name": "nsx-overlay-vds",
-          "vlan": 200,
           "max_mtu": 1700
         },
         "nsx_overlay_edge": {
           "name": "nsx-overlay-edge-vds",
-          "vlan": 300,
           "max_mtu": 1700
         },
         "nsx_external": {
           "name": "nsx-external-vds",
-          "vlan": 200,
           "max_mtu": 1700,
           "netmask": "255.255.255.0",
           "prefix": "24",
@@ -190,10 +181,6 @@
           "tier0_ips": ["172.16.100.111", "172.16.100.112"]
         }
       }
-    },
-    "avi_users": {
-      "create": false,
-      "file": "attendees.txt"
     }
   },
   "nsx": {
@@ -675,7 +662,6 @@
     "app": {
       "create": true,
       "basename": "avi-app-",
-      "count": 3,
       "description": "it will deploy server(s) on segment nsx.config.segments_overlay[1] based on the amount of IP defined in nsx.config.segments_overlay[1].avi_app_server_ips",
       "ova_location": "/home/ubuntu/bin/focal-server-cloudimg-amd64.ova",
       "cpu": 4,

@@ -12,6 +12,5 @@ variable "external_gw" {}
 
 variable "vcenter_password" {}
 variable "avi_password" {}
-variable "avi_backup_passphrase" {}
 variable "docker_registry_username" {}
 variable "docker_registry_password" {}
