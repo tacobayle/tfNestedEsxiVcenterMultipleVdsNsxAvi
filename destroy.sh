@@ -64,7 +64,16 @@ echo "Delete terraform.tfstate files"
 cd nsx/networks
 rm -f terraform.tfstate
 cd ../..
+cd nsx/manager
+rm -f terraform.tfstate
+cd ../..
 cd nsx/config
+rm -f terraform.tfstate
+cd ../..
+cd avi/controllers
+rm -f terraform.tfstate
+cd ../..
+cd avi/app
 rm -f terraform.tfstate
 cd ../..
 cd avi/config
