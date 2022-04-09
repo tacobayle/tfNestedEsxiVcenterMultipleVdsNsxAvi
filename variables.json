@@ -423,7 +423,7 @@
   "avi": {
     "content_library": {
       "create": true,
-      "ova_location": "/home/ubuntu/bin/controller-21.1.3-9051.ova"
+      "ova_location": "/home/ubuntu/bin/controller-21.1.4-9210.ova"
     },
     "controller": {
       "create": true,
