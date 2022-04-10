@@ -40,7 +40,7 @@ data "template_file" "values" {
 }
 
 resource "null_resource" "ansible_avi" {
-  depends_on = [null_resource.ansible_hosts_avi_controllers]
+  depends_on = [null_resource.ansible_hosts_avi_controllers, vsphere_content_library.nested_library_avi, vsphere_folder.se_groups_folders]
 
   connection {
     host = var.vcenter.dvs.portgroup.management.external_gw_ip

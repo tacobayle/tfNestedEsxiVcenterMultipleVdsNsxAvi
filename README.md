@@ -115,7 +115,7 @@ The following variables need to be configured:
 - NSX Manager:
   - "nsx-unified-appliance-3.2.0.1.0.19232400.ova" defined in "nsx.content_library.ova_location"
 - Avi Controller:
-  - "controller-21.1.3-9051.ova" defined in "avi.content_library.ova_location"
+  - "controller-21.1.4-9210.ova" defined in "avi.content_library.ova_location"
 - Avi App:
   - "focal-server-cloudimg-amd64.ova" defined in "avi.app.ova_location"  
 
