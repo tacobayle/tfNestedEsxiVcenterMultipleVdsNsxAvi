@@ -44,11 +44,11 @@ govc v0.24.0
 ### Files required to build the underlay VM(s)
 
 - dns_ntp:
-  - "bionic-server-cloudimg-amd64.ova" defined in "vcenter_underlay.cl.file"
+  - "bionic-server-cloudimg-amd64.ova" defined in "vcenter_underlay.cl.file" # can be downloaded here: https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.ova
 - external-gw:
-  - "focal-server-cloudimg-amd64.ova defined" in "vcenter_underlay.cl.file_external_gw"  
+  - "focal-server-cloudimg-amd64.ova defined" in "vcenter_underlay.cl.file_external_gw"  # can be downloaded here: https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.ova
 - ESXi(s):
-  - "VMware-VMvisor-Installer-7.0U3d-19482537.x86_64.iso" defined in vcenter_underlay.cl.file
+  - "VMware-VMvisor-Installer-7.0U3d-19482537.x86_64.iso" defined in vcenter_underlay.cl.file # can be downloaded here: https://customerconnect.vmware.com
 
 ### VM(s)
 
@@ -64,7 +64,7 @@ On the top of an underlay/outer vCenter environment, this repo will create the f
 
 The following variables need to be configured:
 
-- For the management network:
+- For the management network (which needs to reach the Internet):
   - vcenter.dvs.portgroup.management.netmask like "255.255.252.0"
   - vcenter.dvs.portgroup.management.prefix like "22"
   - vcenter.dvs.portgroup.management.gateway like "10.41.132.1"
@@ -243,11 +243,12 @@ export TF_VAR_esxi_root_password=******              # Nested ESXi root password
 export TF_VAR_vsphere_username=******                # Underlay vCenter username
 export TF_VAR_vsphere_password=******                # Underlay vCenter password
 export TF_VAR_bind_password=******                   # Bind password
+export TF_VAR_ubuntu_password=******                 # Ubuntu password
 export TF_VAR_vcenter_password=******                # Overlay vCenter admin password
 export TF_VAR_nsx_password=******                    # NSX admin password
 export TF_VAR_nsx_license=******                     # NSX license
 export TF_VAR_avi_password=******                    # AVI admin password
-export TF_VAR_avi_old_password=******                # AVI old passwors
+export TF_VAR_avi_old_password=******                # AVI old passwords
 ```
 
 ## start the script (create the infra)
