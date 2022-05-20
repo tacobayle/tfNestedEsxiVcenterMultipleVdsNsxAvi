@@ -113,7 +113,7 @@ The following variables need to be configured:
 - vCenter:
   - "VMware-VCSA-all-7.0.3-19480866.iso" defined in "vcenter.iso_source_location"
 - NSX Manager:
-  - "nsx-unified-appliance-3.2.0.1.0.19232400.ova" defined in "nsx.content_library.ova_location"
+  - "nsx-unified-appliance-3.2.1.0.0.19801963.ova" defined in "nsx.content_library.ova_location"
 - Avi Controller:
   - "controller-21.1.4-9210.ova" defined in "avi.content_library.ova_location"
 - Avi App:

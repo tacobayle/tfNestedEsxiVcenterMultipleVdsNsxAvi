@@ -60,22 +60,22 @@ echo "--------------------------------------------------------------------------
 #
 # Delete terraform.tfstate files
 #
-echo "Delete terraform.tfstate files"
+echo "Delete terraform cache files"
 cd nsx/networks
-rm -f terraform.tfstate
+rm -fr terraform.tfstate .terraform.lock.hcl .terraform
 cd ../..
 cd nsx/manager
-rm -f terraform.tfstate
+rm -fr terraform.tfstate .terraform.lock.hcl .terraform
 cd ../..
 cd nsx/config
-rm -f terraform.tfstate
+rm -fr terraform.tfstate .terraform.lock.hcl .terraform
 cd ../..
 cd avi/controllers
-rm -f terraform.tfstate
+rm -fr terraform.tfstate .terraform.lock.hcl .terraform
 cd ../..
 cd avi/app
-rm -f terraform.tfstate
+rm -fr terraform.tfstate .terraform.lock.hcl .terraform
 cd ../..
 cd avi/config
-rm -f terraform.tfstate
+rm -fr terraform.tfstate .terraform.lock.hcl .terraform
 cd ../..

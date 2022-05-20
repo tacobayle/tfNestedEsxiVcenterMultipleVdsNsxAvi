@@ -189,7 +189,7 @@
     },
     "content_library": {
       "create": true,
-      "ova_location": "/home/ubuntu/bin/nsx-unified-appliance-3.2.0.1.0.19232400.ova"
+      "ova_location": "/home/ubuntu/bin/nsx-unified-appliance-3.2.1.0.0.19801963.ova"
     },
     "manager" : {
       "create": true,
