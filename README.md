@@ -4,6 +4,42 @@
 
 This Infrastructure as code will deploy a nested ESXi/vCenter/NSX/Avi (on the top of vCenter environment which does not support 802.1q or vlan tagged).
 
+## variables
+
+### non sensitive variables
+
+All the non sensitive variables are stored in variables.json
+
+### sensitive variables
+
+All the sensitive variables are stored in environment variables as below:
+
+```bash
+export TF_VAR_esxi_root_password=******              # Nested ESXi root password
+export TF_VAR_vsphere_username=******                # Underlay vCenter username
+export TF_VAR_vsphere_password=******                # Underlay vCenter password
+export TF_VAR_bind_password=******                   # Bind password
+export TF_VAR_ubuntu_password=******                 # Ubuntu password
+export TF_VAR_vcenter_password=******                # Overlay vCenter admin password
+export TF_VAR_nsx_password=******                    # NSX admin password
+export TF_VAR_nsx_license=******                     # NSX license
+export TF_VAR_avi_password=******                    # AVI admin password
+export TF_VAR_avi_old_password=******                # AVI old passwords
+```
+
+vCenter Password constraints:
+
+```
+The entered password for new_vcsa os password does not meet the requirements because it violates password policy.
+Password must conform to the following requirements: 
+At least 8 characters No more than 20 characters
+At least 1 uppercase character
+At least 1 lowercase character
+At least 1 number
+At least 1 special character (e.g., '!', '(', '@', etc.)
+Only visible A-Z, a-z, 0-9 and punctuation (spaces are not allowed)
+```
+
 ## underlay infrastructure
 
 ### tested against
@@ -41,14 +77,17 @@ on linux_amd64
 govc v0.24.0
 ```
 
+- genisoimage:
+```
+genisoimage 1.1.11 (Linux)
+```
+
 ### Files required to build the underlay VM(s)
 
-- dns_ntp:
-  - "bionic-server-cloudimg-amd64.ova" defined in "vcenter_underlay.cl.file" # can be downloaded here: https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.ova
-- external-gw:
-  - "focal-server-cloudimg-amd64.ova defined" in "vcenter_underlay.cl.file_external_gw"  # can be downloaded here: https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.ova
+- dns_ntp and external-gw:
+  - "focal-server-cloudimg-amd64.ova defined" in "vcenter_underlay.cl.ubuntu_focal_file_path"  # can be downloaded here: https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.ova
 - ESXi(s):
-  - "VMware-VMvisor-Installer-7.0U3d-19482537.x86_64.iso" defined in vcenter_underlay.cl.file # can be downloaded here: https://customerconnect.vmware.com
+  - "VMware-VMvisor-Installer-7.0U3d-19482537.x86_64.iso" defined in vcenter_underlay.cl.ubuntu_focal_file_path # can be downloaded here: https://customerconnect.vmware.com
 
 ### VM(s)
 
@@ -227,29 +266,6 @@ A nsx group is configured based on this VM tag:
 
 ![img.png](imgs/nested_avi_vs.jpg)
 
-
-## variables
-
-### non sensitive variables
-
-All the non sensitive variables are stored in variables.json
-
-### sensitive variables
-
-All the sensitive variables are stored in environment variables as below:
-
-```bash
-export TF_VAR_esxi_root_password=******              # Nested ESXi root password
-export TF_VAR_vsphere_username=******                # Underlay vCenter username
-export TF_VAR_vsphere_password=******                # Underlay vCenter password
-export TF_VAR_bind_password=******                   # Bind password
-export TF_VAR_ubuntu_password=******                 # Ubuntu password
-export TF_VAR_vcenter_password=******                # Overlay vCenter admin password
-export TF_VAR_nsx_password=******                    # NSX admin password
-export TF_VAR_nsx_license=******                     # NSX license
-export TF_VAR_avi_password=******                    # AVI admin password
-export TF_VAR_avi_old_password=******                # AVI old passwords
-```
 
 ## start the script (create the infra)
 

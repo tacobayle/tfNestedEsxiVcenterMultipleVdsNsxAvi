@@ -6,9 +6,9 @@ resource "vsphere_content_library" "cl_tf_dnsntp" {
 
 resource "vsphere_content_library_item" "file_dnsntp" {
   count = (var.dns_ntp.create == true ? 1 : 0)
-  name        = basename(var.vcenter_underlay.cl.file)
+  name        = basename(var.vcenter_underlay.cl.ubuntu_focal_file_path)
   library_id  = vsphere_content_library.cl_tf_dnsntp[0].id
-  file_url = var.vcenter_underlay.cl.file
+  file_url = var.vcenter_underlay.cl.ubuntu_focal_file_path
 }
 
 data "template_file" "dns_ntp_userdata" {
@@ -21,10 +21,10 @@ data "template_file" "dns_ntp_userdata" {
     ip = var.vcenter.dvs.portgroup.management.dns_ntp_ip
     lastOctet = split(".", var.vcenter.dvs.portgroup.management.dns_ntp_ip)[3]
     defaultGw = var.vcenter.dvs.portgroup.management.gateway
-    dns      = var.dns_ntp.dns
+    dns      = join(", ", var.dns_ntp.dns)
     netplanFile = var.dns_ntp.netplanFile
     privateKey = var.dns_ntp.private_key_path
-    forwarders = var.dns_ntp.bind.forwarders
+    forwarders = join("; ", var.dns_ntp.bind.forwarders)
     domain = var.dns.domain
     reverse = var.dns_ntp.bind.reverse
     keyName = var.dns_ntp.bind.keyName

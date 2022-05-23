@@ -6,9 +6,9 @@ resource "vsphere_content_library" "library_external_gw" {
 
 resource "vsphere_content_library_item" "file_external_gw" {
   count = (var.external_gw.create == true ? 1 : 0)
-  name        = basename(var.vcenter_underlay.cl.file_external_gw)
+  name        = basename(var.vcenter_underlay.cl.ubuntu_focal_file_path)
   library_id  = vsphere_content_library.library_external_gw[0].id
-  file_url = var.vcenter_underlay.cl.file_external_gw
+  file_url = var.vcenter_underlay.cl.ubuntu_focal_file_path
 }
 
 data "template_file" "external_gw_userdata" {
@@ -25,7 +25,7 @@ data "template_file" "external_gw_userdata" {
     ansible_version = var.external_gw.ansible_version
     avi_sdk_version = var.external_gw.avi_sdk_version
 //    ip_data_cidr  = "${var.vcenter.dvs.portgroup.nsx_external.external_gw_ip}/${var.vcenter.dvs.portgroup.nsx_external.prefix}"
-    dns      = var.external_gw.dns
+    dns      = join(", ", var.external_gw.dns)
     netplanFile = var.external_gw.netplanFile
     privateKey = var.external_gw.private_key_path
   }
@@ -172,7 +172,7 @@ resource "null_resource" "update_ip_external_gw_1" {
       "echo \"            set-name: $iface\" | sudo tee -a ${var.external_gw.netplanFile}",
       "echo \"            gateway4: ${var.vcenter.dvs.portgroup.management.gateway}\" | sudo tee -a ${var.external_gw.netplanFile}",
       "echo \"            nameservers:\" | sudo tee -a ${var.external_gw.netplanFile}",
-      "echo \"              addresses: [${var.external_gw.dns}]\" | sudo tee -a ${var.external_gw.netplanFile}",
+      "echo \"              addresses: [${join(", ", var.external_gw.dns)}]\" | sudo tee -a ${var.external_gw.netplanFile}",
       "echo \"        $ifaceSecond:\" | sudo tee -a ${var.external_gw.netplanFile}",
       "echo \"            dhcp4: false\" | sudo tee -a ${var.external_gw.netplanFile}",
       "echo \"            addresses: [${var.vcenter.dvs.portgroup.nsx_external.external_gw_ip}/${var.vcenter.dvs.portgroup.nsx_external.prefix}]\" | sudo tee -a ${var.external_gw.netplanFile}",
