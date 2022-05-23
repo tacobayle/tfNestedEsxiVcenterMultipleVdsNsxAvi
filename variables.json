@@ -8,7 +8,7 @@
     "server": "sof2-01-vc08.oc.vmware.com",
     "cl": {
       "name": "ubuntu",
-      "ubuntu_focal_file_path": "/home/ubuntu/bin/bionic-server-cloudimg-amd64.ova"
+      "ubuntu_focal_file_path": "/home/ubuntu/bin/focal-server-cloudimg-amd64.ova"
     },
     "networks": {
       "management": {
