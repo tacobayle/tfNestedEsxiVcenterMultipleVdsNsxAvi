@@ -77,15 +77,16 @@ tf_init_apply () {
   if [ -s "$4" ] ; then
     echo "TF Apply ERRORS:"
     cat $4
-    echo "Waiting for 30 seconds - retrying TF Apply..."
-    sleep 10
-    rm -f $3 $4
-    terraform apply -auto-approve -var-file=$5 > $3 2>$4
-    if [ -s "$4" ] ; then
-      echo "TF Apply ERRORS:"
-      cat $4
-      exit 1
-    fi
+#    echo "Waiting for 30 seconds - retrying TF Apply..."
+#    sleep 10
+#    rm -f $3 $4
+#    terraform apply -auto-approve -var-file=$5 > $3 2>$4
+#    if [ -s "$4" ] ; then
+#      echo "TF Apply ERRORS:"
+#      cat $4
+#      exit 1
+#    fi
+    exit 1
   fi
   echo "Ending timestamp: $(date)"
   cd - > /dev/null
