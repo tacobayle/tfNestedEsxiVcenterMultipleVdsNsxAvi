@@ -48,7 +48,6 @@ resource "vsphere_virtual_machine" "external_gw" {
 
   num_cpus = var.external_gw.cpu
   memory = var.external_gw.memory
-  wait_for_guest_net_timeout = var.external_gw.wait_for_guest_net_timeout
   guest_id = "ubuntu64Guest"
 
   disk {
