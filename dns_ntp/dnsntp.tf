@@ -24,6 +24,7 @@ data "template_file" "dns_ntp_userdata" {
     dns      = join(", ", var.dns_ntp.dns)
     netplanFile = var.dns_ntp.netplanFile
     privateKey = var.dns_ntp.private_key_path
+    password      = var.ubuntu_password
     forwarders = join("; ", var.dns_ntp.bind.forwarders)
     domain = var.dns.domain
     reverse = var.dns_ntp.bind.reverse

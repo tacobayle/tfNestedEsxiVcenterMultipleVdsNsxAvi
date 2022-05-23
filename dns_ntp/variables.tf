@@ -7,6 +7,8 @@ variable "vcenter" {}
 variable "nsx" {}
 variable "avi" {}
 variable "external_gw" {}
+variable "ubuntu_password" {}
+
 
 
 variable "vsphere_username" {}
