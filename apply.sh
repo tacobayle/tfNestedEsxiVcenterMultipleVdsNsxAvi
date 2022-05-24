@@ -145,18 +145,18 @@ if [[ $(jq -c -r .avi.controller.create $jsonFile) == true ]] || [[ $(jq -c -r .
   #
   # Add Routes to join overlay network
   #
-  for route in $(jq -c -r .external_gw.routes[] $jsonFile)
-  do
-    sudo ip route add $(echo $route | jq -c -r '.to') via $(jq -c -r .vcenter.dvs.portgroup.management.external_gw_ip $jsonFile)
-  done
+#  for route in $(jq -c -r .external_gw.routes[] $jsonFile)
+#  do
+#    sudo ip route add $(echo $route | jq -c -r '.to') via $(jq -c -r .vcenter.dvs.portgroup.management.external_gw_ip $jsonFile)
+#  done
   tf_init_apply "Build of Nested Avi Controllers - This should take around 15 minutes" avi/controllers ../../logs/tf_avi.stdout ../../logs/tf_avi.errors ../../$jsonFile
   #
   # Remove Routes to join overlay network
   #
-  for route in $(jq -c -r .external_gw.routes[] $jsonFile)
-  do
-    sudo ip route del $(echo $route | jq -c -r '.to') via $(jq -c -r .vcenter.dvs.portgroup.management.external_gw_ip $jsonFile)
-  done
+#  for route in $(jq -c -r .external_gw.routes[] $jsonFile)
+#  do
+#    sudo ip route del $(echo $route | jq -c -r '.to') via $(jq -c -r .vcenter.dvs.portgroup.management.external_gw_ip $jsonFile)
+#  done
 fi
 #
 # Build of the Nested Avi App
@@ -165,18 +165,18 @@ if [[ $(jq -c -r .avi.app.create $jsonFile) == true ]] ; then
   #
   # Add Routes to join overlay network
   #
-  for route in $(jq -c -r .external_gw.routes[] $jsonFile)
-  do
-    sudo ip route add $(echo $route | jq -c -r '.to') via $(jq -c -r .vcenter.dvs.portgroup.management.external_gw_ip $jsonFile)
-  done
+#  for route in $(jq -c -r .external_gw.routes[] $jsonFile)
+#  do
+#    sudo ip route add $(echo $route | jq -c -r '.to') via $(jq -c -r .vcenter.dvs.portgroup.management.external_gw_ip $jsonFile)
+#  done
   tf_init_apply "Build of Nested Avi App - This should take less than 10 minutes" avi/app ../../logs/tf_avi_app.stdout ../../logs/tfavi_app.errors ../../$jsonFile
   #
   # Remove Routes to join overlay network
   #
-  for route in $(jq -c -r .external_gw.routes[] $jsonFile)
-  do
-    sudo ip route del $(echo $route | jq -c -r '.to') via $(jq -c -r .vcenter.dvs.portgroup.management.external_gw_ip $jsonFile)
-  done
+#  for route in $(jq -c -r .external_gw.routes[] $jsonFile)
+#  do
+#    sudo ip route del $(echo $route | jq -c -r '.to') via $(jq -c -r .vcenter.dvs.portgroup.management.external_gw_ip $jsonFile)
+#  done
 fi
 #
 # Build of the config of Avi
