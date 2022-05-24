@@ -25,6 +25,8 @@ export TF_VAR_nsx_password=******                    # NSX admin password
 export TF_VAR_nsx_license=******                     # NSX license
 export TF_VAR_avi_password=******                    # AVI admin password
 export TF_VAR_avi_old_password=******                # AVI old passwords
+export TF_VAR_docker_registry_password=******        # docker password
+export TF_VAR_docker_registry_username=******        # docker username
 ```
 
 vCenter Password constraints:
