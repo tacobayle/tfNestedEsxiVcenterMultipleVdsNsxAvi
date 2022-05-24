@@ -82,6 +82,36 @@ govc v0.24.0
 genisoimage 1.1.11 (Linux)
 ```
 
+- ansible
+```
+ansible [core 2.11.12]
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/local/lib/python3.6/site-packages/ansible
+  ansible collection location = /root/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/local/bin/ansible
+  python version = 3.6.8 (default, Nov 16 2020, 16:55:22) [GCC 4.8.5 20150623 (Red Hat 4.8.5-44)]
+  jinja version = 3.0.3
+  libyaml = True
+```
+
+- ansible collections
+```
+ansible-galaxy collection list | grep nsx
+vmware.ansible_for_nsxt 1.0.0
+```
+
+```
+ansible-galaxy collection list | grep vmware
+community.vmware        2.5.0
+```
+
+- python module
+```
+pip3 list | grep pyvm
+pyvmomi            7.0.3
+```
+
 ### Files required to build the underlay VM(s)
 
 - dns_ntp and external-gw:
