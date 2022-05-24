@@ -24,6 +24,9 @@ data "template_file" "external_gw_userdata" {
     hostname = var.external_gw.name
     ansible_version = var.external_gw.ansible_version
     avi_sdk_version = var.external_gw.avi_sdk_version
+    ip_vcenter = var.vcenter.dvs.portgroup.management.vcenter_ip
+    vcenter_name = var.vcenter.name
+    dns_domain = var.dns.domain
 //    ip_data_cidr  = "${var.vcenter.dvs.portgroup.nsx_external.external_gw_ip}/${var.vcenter.dvs.portgroup.nsx_external.prefix}"
     dns      = join(", ", var.external_gw.dns)
     netplanFile = var.external_gw.netplanFile
