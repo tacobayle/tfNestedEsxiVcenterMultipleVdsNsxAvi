@@ -5,7 +5,7 @@ data "template_file" "avi_app_userdata" {
     username     = var.avi.app.username
     hostname     = "${var.avi.app.basename}${count.index}"
     password      = var.ubuntu_password
-    pubkey       = "../${basename(var.avi.app.public_key_path)}"
+    pubkey       = file("../${basename(var.avi.app.public_key_path)}")
     netplan_file  = var.avi.app.netplan_file
     prefix = split("/", var.nsx.config.segments_overlay[1].cidr)[1]
     ip = var.nsx.config.segments_overlay[1].avi_app_server_ips[count.index]
@@ -53,7 +53,7 @@ resource "vsphere_virtual_machine" "avi_app" {
   vapp {
     properties = {
       hostname    = "${var.avi.app.basename}${count.index}"
-      public-keys = "../${basename(var.avi.app.public_key_path)}"
+      public-keys = file("../${basename(var.avi.app.public_key_path)}")
       user-data   = base64encode(data.template_file.avi_app_userdata[count.index].rendered)
     }
   }
