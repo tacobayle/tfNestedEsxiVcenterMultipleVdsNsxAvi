@@ -21,6 +21,11 @@ resource "null_resource" "tf_avi_app" {
   }
 
   provisioner "file" {
+    source = var.avi.app.ova_location
+    destination = basename(var.avi.app.ova_location)
+  }
+
+  provisioner "file" {
     source = "../../variables.json"
     destination = "variables.json"
   }

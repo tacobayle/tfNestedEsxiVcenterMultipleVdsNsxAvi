@@ -39,5 +39,5 @@ resource "vsphere_content_library_item" "nested_library_avi_item" {
   name        = basename(var.avi.content_library.ova_location)
   description = basename(var.avi.content_library.ova_location)
   library_id  = vsphere_content_library.nested_library_avi[0].id
-  file_url = var.avi.content_library.ova_location
+  file_url = "../${basename(var.avi.content_library.ova_location)}"
 }

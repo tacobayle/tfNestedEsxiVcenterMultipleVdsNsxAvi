@@ -6,5 +6,5 @@ resource "vsphere_content_library" "nested_library_avi_app" {
 resource "vsphere_content_library_item" "nested_library_item_avi_app" {
   name        = basename(var.avi.app.ova_location)
   library_id  = vsphere_content_library.nested_library_avi_app.id
-  file_url = var.avi.app.ova_location
+  file_url = "../${basename(var.avi.app.ova_location)}"
 }
