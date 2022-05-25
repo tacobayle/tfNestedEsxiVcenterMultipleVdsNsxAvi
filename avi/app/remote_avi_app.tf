@@ -21,6 +21,16 @@ resource "null_resource" "tf_avi_app" {
   }
 
   provisioner "file" {
+    source = var.avi.app.public_key_path
+    destination = basename(var.avi.app.public_key_path)
+  }
+
+  provisioner "file" {
+    source = var.avi.app.private_key_path
+    destination = basename(var.avi.app.private_key_path)
+  }
+
+  provisioner "file" {
     source = var.avi.app.ova_location
     destination = basename(var.avi.app.ova_location)
   }

@@ -5,7 +5,7 @@ data "template_file" "avi_app_userdata" {
     username     = var.avi.app.username
     hostname     = "${var.avi.app.basename}${count.index}"
     password      = var.ubuntu_password
-    pubkey       = file(var.avi.app.public_key_path)
+    pubkey       = "../${basename(var.avi.app.public_key_path)}"
     netplan_file  = var.avi.app.netplan_file
     prefix = split("/", var.nsx.config.segments_overlay[1].cidr)[1]
     ip = var.nsx.config.segments_overlay[1].avi_app_server_ips[count.index]
@@ -53,7 +53,7 @@ resource "vsphere_virtual_machine" "avi_app" {
   vapp {
     properties = {
       hostname    = "${var.avi.app.basename}${count.index}"
-      public-keys = file(var.avi.app.public_key_path)
+      public-keys = "../${basename(var.avi.app.public_key_path)}"
       user-data   = base64encode(data.template_file.avi_app_userdata[count.index].rendered)
     }
   }
@@ -63,7 +63,7 @@ resource "vsphere_virtual_machine" "avi_app" {
     type        = "ssh"
     agent       = false
     user        = var.avi.app.username
-    private_key = file(var.avi.app.private_key_path)
+    private_key = file("../${basename(var.avi.app.private_key_path)}")
   }
 
   provisioner "remote-exec" {
