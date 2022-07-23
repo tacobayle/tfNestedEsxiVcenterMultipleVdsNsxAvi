@@ -119,7 +119,7 @@ pyvmomi            7.0.3
 - dns_ntp and external-gw:
   - "focal-server-cloudimg-amd64.ova defined" in "vcenter_underlay.cl.ubuntu_focal_file_path"  # can be downloaded here: https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.ova
 - ESXi(s):
-  - "VMware-VMvisor-Installer-7.0U3d-19482537.x86_64.iso" defined in vcenter_underlay.cl.ubuntu_focal_file_path # can be downloaded here: https://customerconnect.vmware.com
+  - "VMware-VMvisor-Installer-7.0U3f-20036589.x86_64.iso" defined in vcenter_underlay.cl.ubuntu_focal_file_path # can be downloaded here: https://customerconnect.vmware.com
 
 ### VM(s)
 
