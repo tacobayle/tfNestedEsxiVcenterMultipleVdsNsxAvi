@@ -70,7 +70,7 @@
     "wait_for_guest_net_timeout": 2,
     "username": "ubuntu",
     "ansible_version": "2.10.7",
-    "avi_sdk_version": "21.1.3",
+    "avi_sdk_version": "22.1.1",
     "netplanFile": "/etc/netplan/50-cloud-init.yaml",
     "routes_description": "the following routes will be installed under the external interface",
     "routes":
@@ -422,7 +422,7 @@
   "avi": {
     "content_library": {
       "create": true,
-      "ova_location": "/home/ubuntu/bin/controller-21.1.4-9210.ova"
+      "ova_location": "/home/ubuntu/bin/controller-22.1.1-9052.ova"
     },
     "controller": {
       "create": true,
@@ -430,7 +430,7 @@
       "memory": 24768,
       "disk": 128,
       "basename": "avi-controller",
-      "version": "21.1.4"
+      "version": "22.1.1"
     },
     "config": {
       "create": true,

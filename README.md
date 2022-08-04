@@ -186,12 +186,15 @@ The following variables need to be configured:
 - NSX Manager:
   - "nsx-unified-appliance-3.2.1.0.0.19801963.ova" defined in "nsx.content_library.ova_location"
 - Avi Controller:
-  - "controller-21.1.4-9210.ova" defined in "avi.content_library.ova_location"
+  - "controller-22.1.1-9052.ova" defined in "avi.content_library.ova_location"
 - Avi App:
   - "focal-server-cloudimg-amd64.ova" defined in "avi.app.ova_location"  
 
 
 ### vCenter deployment
+
+
+
 
 It will deploy a single vCenter on the top of the management port group (connected to the management network of the underlay infrastructure).
 IP is defined in vcenter.dvs.portgroup.management.vcenter_ip.
