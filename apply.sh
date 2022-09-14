@@ -114,8 +114,8 @@ fi
 # Build of the nested ESXi/vCenter infrastructure
 #
 tf_init_apply "Build of the nested ESXi/vCenter infrastructure - This should take less than 45 minutes" nested_esxi_vcenter ../logs/tf_nested_esxi_vcenter.stdout ../logs/tf_nested_esxi_vcenter.errors ../$jsonFile
-echo "waiting for 15 minutes to finish the vCenter config..."
-sleep 900
+echo "waiting for 20 minutes to finish the vCenter config..."
+sleep 1200
 #
 # Build of the NSX Nested Networks
 #

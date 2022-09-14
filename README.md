@@ -119,7 +119,7 @@ pyvmomi            7.0.3
 - dns_ntp and external-gw:
   - "focal-server-cloudimg-amd64.ova defined" in "vcenter_underlay.cl.ubuntu_focal_file_path"  # can be downloaded here: https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.ova
 - ESXi(s):
-  - "VMware-VMvisor-Installer-7.0U3f-20036589.x86_64.iso" defined in vcenter_underlay.cl.ubuntu_focal_file_path # can be downloaded here: https://customerconnect.vmware.com
+  - "VMware-VMvisor-Installer-7.0U3g-20328353.x86_64.iso" defined in vcenter_underlay.cl.ubuntu_focal_file_path # can be downloaded here: https://customerconnect.vmware.com
 
 ### VM(s)
 
@@ -182,7 +182,7 @@ The following variables need to be configured:
 ### Files required to build the nested VM(s)
 
 - vCenter:
-  - "VMware-VCSA-all-7.0.3-19480866.iso" defined in "vcenter.iso_source_location"
+  - "VMware-VCSA-all-7.0.3-20395099.iso" defined in "vcenter.iso_source_location"
 - NSX Manager:
   - "nsx-unified-appliance-3.2.1.0.0.19801963.ova" defined in "nsx.content_library.ova_location"
 - Avi Controller:
