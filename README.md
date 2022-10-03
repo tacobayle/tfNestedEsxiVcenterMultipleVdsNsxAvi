@@ -8,7 +8,7 @@ This Infrastructure as code will deploy a nested ESXi/vCenter/NSX/Avi (on the to
 
 ### non sensitive variables
 
-All the non sensitive variables are stored in variables.json
+All the non-sensitive variables are stored in variables.json
 
 ### sensitive variables
 
@@ -186,7 +186,7 @@ The following variables need to be configured:
 - NSX Manager:
   - "nsx-unified-appliance-3.2.1.0.0.19801963.ova" defined in "nsx.content_library.ova_location"
 - Avi Controller:
-  - "controller-22.1.1-9052.ova" defined in "avi.content_library.ova_location"
+  - "controller-22.1.2-9086.ova" defined in "avi.content_library.ova_location"
 - Avi App:
   - "focal-server-cloudimg-amd64.ova" defined in "avi.app.ova_location"  
 
